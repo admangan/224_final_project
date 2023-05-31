@@ -6,6 +6,14 @@ print(pipe("Hello world! Is this content AI-generated?"))  # [{'label': 'Real', 
 #load in training_set_rel3.tsv
 import pandas as pd
 import numpy as np
+import openai
+import os
+import dotenv
+import requests
+from dotenv import load_dotenv
+load_dotenv()
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 df = pd.read_csv('training_set_rel3.tsv', sep='\t', encoding='ISO-8859-1')
 df.head()
@@ -35,14 +43,34 @@ non_native_prompts = {
 }
 
 # %%
-import openai
-import os
-import dotenv
-from dotenv import load_dotenv
-load_dotenv()
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
+class GPTZeroAPI:
+    def __init__(self, api_key):
+        self.api_key = api_key
+        self.base_url = 'https://api.gptzero.me/v2/predict'
+    def text_predict(self, document):
+        url = f'{self.base_url}/text'
+        headers = {
+            'accept': 'application/json',
+            'X-Api-Key': self.api_key,
+            'Content-Type': 'application/json'
+        }
+        data = {
+            'document': document
+        }
+        response = requests.post(url, headers=headers, json=data)
+        return response.json()
+    def file_predict(self, file_path):
+        url = f'{self.base_url}/files'
+        headers = {
+            'accept': 'application/json',
+            'X-Api-Key': self.api_key
+        }
+        files = {
+            'files': (os.path.basename(file_path), open(file_path, 'rb'))
+        }
+        response = requests.post(url, headers=headers, files=files)
+        return response.json()
 # use openai with 3.5 
 
 # %%
@@ -81,52 +109,6 @@ def completion_3(prompt):
   )
   return comp.choices[0].text
 
-## set up openai
-
-
-
-# %%
-
-output = {}
-
-for prompt in native_prompts.values():
-  entry = {}
-  entry['prompt'] = prompt
-  entry['completion'] = completion_3(prompt)
-  entry['native'] = True
-  output.append(entry)
-
-  entry = {}
-  entry['prompt'] = prompt
-  entry['completion'] = completion_4(prompt)
-  entry['native'] = True
-  output.append(entry)
-
-  entry = {}
-  entry['prompt'] = prompt
-  entry['completion'] = completion_3_5(prompt)
-  entry['native'] = True
-  output.append(entry)
-
-for prompt in non_native_prompts.values():
-  entry = {}
-  entry['prompt'] = prompt
-  entry['completion'] = completion_3(prompt)
-  entry['native'] = False
-  output.append(entry)
-
-  entry = {}
-  entry['prompt'] = prompt
-  entry['completion'] = completion_4(prompt)
-  entry['native'] = False
-  output.append(entry)
-
-  entry = {}
-  entry['prompt'] = prompt
-  entry['completion'] = completion_3_5(prompt)
-  entry['native'] = False
-  output.append(entry)
-
 # %%
 # rewrite the above two for loops more efficiently
 output = []
@@ -156,3 +138,10 @@ with open('gpt_generated.json', 'w+') as outfile:
 # %%
 
 
+
+
+# %%
+gptzero = GPTZeroAPI(os.getenv("GPTZERO_API_KEY"))
+# %%
+gptzero.text_predict('Write a 250 word essay responding to this prompt: ' + native_prompts[1])
+# %%
