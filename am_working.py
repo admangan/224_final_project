@@ -24,6 +24,16 @@ df = df[df['essay_set'].isin([1,2,7,8])]
 df.shape
 
 # %%
+# reindex the dataframe
+df = df.reset_index(drop=True)
+
+# %%
+# print the first 5 rows of the dataframe
+for i in range(5):
+    print(df['essay'][i])
+    print('---------------------')
+
+# %%
 native_prompts = {
     1:'More and more people use computers, but not everyone agrees that this benefits society. Those who support advances in technology believe that computers have a positive effect on people. They teach hand-eye coordination, give people the ability to learn about faraway places and people, and even allow people to talk online with other people. Others have different ideas. Some experts are concerned that people are spending too much time on their computers and less time exercising, enjoying nature, and interacting with family and friends. Write a letter to your local newspaper in which you state your opinion on the effects computers have on people. Persuade the readers to agree with you.',
     2: 'Write an essay in which you explain how the author builds an argument to persuade his/her audience that authors claim. In your essay, analyze how the author uses one or more of the features listed above (or features of your own choice) to strengthen the logic and persuasiveness of his/her argument. Be sure that your analysis focuses on the most relevant features of the passage.',
@@ -136,12 +146,110 @@ with open('gpt_generated.json', 'w+') as outfile:
     json.dump(output, outfile, indent=4)
     
 # %%
-
+len(output)
 
 
 
 # %%
-gptzero = GPTZeroAPI(os.getenv("GPTZERO_API_KEY"))
+gptzero = GPTZeroAPI('9b8298a6976e4a6e992c33904b472b60')
 # %%
-gptzero.text_predict('Write a 250 word essay responding to this prompt: ' + native_prompts[1])
+response = gptzero.text_predict('Write a 250 word essay responding to this prompt: ' + native_prompts[1])
+
+print(response['documents'][0]['average_generated_prob'])
+
+# %%
+test_set = []
+for i in range(len(output)):
+  entry = {}
+  entry['native'] = output[i]['native']
+  entry['generated'] = True
+  entry['prompt'] = output[i]['prompt']
+  average_prob = gptzero.text_predict(output[i]['completion'])['documents'][0]['average_generated_prob']
+  entry['average_probability'] = average_prob
+  test_set.append(entry)
+
+
+# %%
+#print out the average probability for each prompt
+for i in range(len(test_set)):
+  print(test_set[i]['average_probability'])
+
+  
+
+# %%
+
+# for each .txt file in the directory, load it in and store it in a list
+
+non_native_list = []
+
+for filename in os.listdir('drive-download-20230601T034313Z-001'):
+  with open('drive-download-20230601T034313Z-001/' + filename, 'r') as f:
+    non_native_list.append(f.read())
+    
+
+# %%
+len(non_native_list)
+# %%
+
+for essay in non_native_list:
+  entry = {}
+  entry['native'] = False
+  entry['generated'] = False
+  average_prob = gptzero.text_predict(essay)['documents'][0]['average_generated_prob']
+  entry['average_probability'] = average_prob
+  test_set.append(entry)
+# %%
+
+for i in range(25):
+  entry = {}
+  entry['native'] = False
+  entry['generated'] = False
+  average_prob = gptzero.text_predict(df['essay'][i])['documents'][0]['average_generated_prob']
+  entry['average_probability'] = average_prob
+  test_set.append(entry)
+# %%
+
+
+# %%
+results = []
+# %%
+#count the number of correct predictions
+
+threshold = 0.99999999
+for i in range(len(test_set)):
+  if test_set[i]['average_probability'] > threshold:
+    test_set[i]['predicted_generated'] = True
+  else:
+    test_set[i]['predicted_generated'] = False
+
+correct = 0
+false_positives = 0
+false_negatives = 0
+for i in range(len(test_set)):
+  if test_set[i]['predicted_generated'] == test_set[i]['generated']:
+    correct += 1
+  elif test_set[i]['predicted_generated'] == True and test_set[i]['generated'] == False:
+    false_positives += 1
+  elif test_set[i]['predicted_generated'] == False and test_set[i]['generated'] == True:
+    false_negatives += 1
+
+result_entry = {}
+result_entry['threshold'] = threshold
+result_entry['correct'] = correct
+result_entry['false_positives'] = false_positives
+result_entry['false_negatives'] = false_negatives
+if result_entry not in results:
+  results.append(result_entry)
+
+print(len(test_set))
+print(correct)
+print(false_positives)
+print(false_negatives)
+
+# %%
+
+# save results to json
+import json
+with open('test_gpt_results.json', 'w+') as outfile:
+    json.dump(results, outfile, indent=4)
 # %%
