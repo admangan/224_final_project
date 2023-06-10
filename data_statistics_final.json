@@ -1,0 +1,44 @@
+[
+    {
+        "name": "native_data_results_no_spell",
+        "precision": 0.9955654101995565,
+        "recall": 0.7803168759450395,
+        "f1": 0.8738531200962661,
+        "accuracy": 0.7772664519098017
+    },
+    {
+        "name": "native_data_results_spell",
+        "precision": 0.9955654101995565,
+        "recall": 0.7803168759450395,
+        "f1": 0.8738531200962661,
+        "accuracy": 0.7772664519098017
+    },
+    {
+        "name": "non_native_data_results_no_spell",
+        "precision": 0.9930447943343056,
+        "recall": 0.8869868201787606,
+        "f1": 0.9369797540172501,
+        "accuracy": 0.8815115928937068
+    },
+    {
+        "name": "non_native_data_results_spell",
+        "precision": 0.9930447943343056,
+        "recall": 0.8869868201787606,
+        "f1": 0.9369797540172501,
+        "accuracy": 0.8815115928937068
+    },
+    {
+        "name": "data_results_no_spell",
+        "precision": 0.9939072817117294,
+        "recall": 0.8446966965234403,
+        "f1": 0.9129993379850045,
+        "accuracy": 0.8402803057881322
+    },
+    {
+        "name": "data_results_spell",
+        "precision": 0.9939072817117294,
+        "recall": 0.8446966965234403,
+        "f1": 0.9129993379850045,
+        "accuracy": 0.8402803057881322
+    }
+]

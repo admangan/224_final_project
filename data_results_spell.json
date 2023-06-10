@@ -1,0 +1,289 @@
+[
+    {
+        "threshold": 0.6,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.61,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.62,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.63,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.64,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.65,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.6599999999999999,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.6699999999999999,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.6799999999999999,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.69,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.7,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.71,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.72,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.73,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.74,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.75,
+        "true_positive": 231,
+        "true_negative": 0,
+        "false_positives": 2,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.76,
+        "true_positive": 232,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 35
+    },
+    {
+        "threshold": 0.77,
+        "true_positive": 230,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 37
+    },
+    {
+        "threshold": 0.78,
+        "true_positive": 230,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 37
+    },
+    {
+        "threshold": 0.79,
+        "true_positive": 230,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 37
+    },
+    {
+        "threshold": 0.8,
+        "true_positive": 230,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 37
+    },
+    {
+        "threshold": 0.8099999999999999,
+        "true_positive": 228,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 39
+    },
+    {
+        "threshold": 0.82,
+        "true_positive": 228,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 39
+    },
+    {
+        "threshold": 0.83,
+        "true_positive": 224,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 43
+    },
+    {
+        "threshold": 0.84,
+        "true_positive": 223,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 44
+    },
+    {
+        "threshold": 0.85,
+        "true_positive": 223,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 44
+    },
+    {
+        "threshold": 0.86,
+        "true_positive": 223,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 44
+    },
+    {
+        "threshold": 0.87,
+        "true_positive": 223,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 44
+    },
+    {
+        "threshold": 0.88,
+        "true_positive": 222,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 45
+    },
+    {
+        "threshold": 0.8899999999999999,
+        "true_positive": 222,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 45
+    },
+    {
+        "threshold": 0.8999999999999999,
+        "true_positive": 222,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 45
+    },
+    {
+        "threshold": 0.9099999999999999,
+        "true_positive": 220,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 47
+    },
+    {
+        "threshold": 0.9199999999999999,
+        "true_positive": 218,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 49
+    },
+    {
+        "threshold": 0.9299999999999999,
+        "true_positive": 216,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 51
+    },
+    {
+        "threshold": 0.94,
+        "true_positive": 215,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 52
+    },
+    {
+        "threshold": 0.95,
+        "true_positive": 213,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 54
+    },
+    {
+        "threshold": 0.96,
+        "true_positive": 213,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 54
+    },
+    {
+        "threshold": 0.97,
+        "true_positive": 213,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 54
+    },
+    {
+        "threshold": 0.98,
+        "true_positive": 213,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 54
+    },
+    {
+        "threshold": 0.99,
+        "true_positive": 213,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 54
+    },
+    {
+        "threshold": 1.0,
+        "true_positive": 213,
+        "true_negative": 0,
+        "false_positives": 1,
+        "false_negatives": 54
+    }
+]
